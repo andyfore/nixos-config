@@ -9,54 +9,48 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, disko, home-manager, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in {
-        nixosConfigurations = {
-          asus-amd-laptop = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/asus-amd-laptop/configuration.nix
-              ./hosts/asus-amd-laptop/hardware-configuration.nix
-              ./hosts/asus-amd-laptop/disko.nix
-              disko.nixosModules.disko
+outputs = { self, nixpkgs, disko, home-manager, ... }: {
+  nixosConfigurations = {
+    asus-amd-laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/asus-amd-laptop/configuration.nix
+        ./hosts/asus-amd-laptop/hardware-configuration.nix
+        ./hosts/asus-amd-laptop/disko.nix
+        disko.nixosModules.disko
 
-              ./modules/base/locale.nix
-              ./modules/base/networking.nix
-              ./modules/base/nix.nix
-              ./modules/base/users.nix
-              ./modules/desktop/hyprland.nix
-              ./modules/desktop/sddm.nix
-              ./modules/hardware/amd.nix
-              ./modules/security/fde-tpm.nix
+        ./modules/base/locale.nix
+        ./modules/base/networking.nix
+        ./modules/base/nix.nix
+        ./modules/base/users.nix
+        ./modules/desktop/hyprland.nix
+        ./modules/desktop/sddm.nix
+        ./modules/hardware/amd.nix
+        ./modules/security/fde-tpm.nix
 
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.andyfore = import ./home/andyfore.nix;
-              }
-            ];
-          };
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.andyfore = import ./home/andyfore.nix;
+        }
+      ];
+    };
 
-          homelab-server = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/homelab-server/configuration.nix
-              ./hosts/homelab-server/hardware-configuration.nix
-              ./modules/base/locale.nix
-              ./modules/base/networking.nix
-              ./modules/base/nix.nix
-              ./modules/base/users.nix
-              ./modules/hardware/intel.nix
-              ./modules/security/fde-none.nix
-            ];
-          };
-        };
-      });
+    homelab-server = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/homelab-server/configuration.nix
+        ./hosts/homelab-server/hardware-configuration.nix
+        ./modules/base/locale.nix
+        ./modules/base/networking.nix
+        ./modules/base/nix.nix
+        ./modules/base/users.nix
+        ./modules/hardware/intel.nix
+        ./modules/security/fde-none.nix
+      ];
+    };
+  };
+};
+
 }
