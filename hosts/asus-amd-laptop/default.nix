@@ -12,5 +12,10 @@
   ];
 
   networking.hostName = "terminus";
+
+  _module.args = {
+    disko.devices = config.disko.devices;
+  };
+
 }
 
