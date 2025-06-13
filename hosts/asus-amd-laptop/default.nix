@@ -4,7 +4,7 @@
   imports = [
     ../../modules/base/boot.nix
     ../../modules/base/networking.nix
-    ../../modules/base/nix-settings.nix
+#    ../../modules/base/nix-settings.nix
     ../../modules/base/users.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/desktop/sddm.nix
