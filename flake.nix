@@ -14,7 +14,7 @@ outputs = { self, nixpkgs, disko, home-manager, ... }: {
     asus-amd-laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./hosts/asus-amd-laptop/configuration.nix
+        ./hosts/asus-amd-laptop/default.nix
         ./hosts/asus-amd-laptop/hardware-configuration.nix
         ./hosts/asus-amd-laptop/disko.nix
         disko.nixosModules.disko
