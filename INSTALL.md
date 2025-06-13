@@ -5,6 +5,7 @@ nmcli device wifi connect <SSID> password <PASSWORD>
 # 2. Clone your GitHub repo into the live ISO user's home
 git clone https://github.com/your-username/nixos-config.git ~/nixos-config
 
+**Note:**
 # Or, for SSH (requires adding the installer's SSH key to GitHub)
 ssh-keygen -t ed25519 -C "nixos-install"
 cat ~/.ssh/id_ed25519.pub  # Add this key to GitHub temporarily
