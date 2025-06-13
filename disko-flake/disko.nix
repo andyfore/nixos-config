@@ -25,6 +25,7 @@
               type = "luks";
               name = "cryptroot";
               settings.allowDiscards = true;
+              passwordFile = "/tmp/luks-pass";
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ];

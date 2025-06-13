@@ -8,8 +8,9 @@
       modules = [
         ./disko.nix
         disko.nixosModules.disko
+        # Add dummy passwordFile to avoid 'unbound variable' error
+        # See: https://github.com/nix-community/disko/issues/181
       ];
     };
   };
 }
-
