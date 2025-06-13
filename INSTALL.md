@@ -2,28 +2,23 @@
 nmcli device wifi list
 nmcli device wifi connect <SSID> password <PASSWORD>
 
-# 2. Partition and format the disk using Disko
-nix run github:nix-community/disko -- --mode zap_create_mount ./hosts/asus-amd-laptop/disko.nix
+# 2. Clone your GitHub repo into the live ISO user's home
+git clone https://github.com/your-username/nixos-config.git ~/nixos-config
 
-# 3. Mount all partitions (if needed)
-mount | grep /mnt
+# Or, for SSH (requires adding the installer's SSH key to GitHub)
+ssh-keygen -t ed25519 -C "nixos-install"
+cat ~/.ssh/id_ed25519.pub  # Add this key to GitHub temporarily
+git clone git@github.com:your-username/nixos-config.git ~/nixos-config
 
-# 4. Clone your GitHub repo (choose one method)
+# 3. Partition and format the disk using Disko
+nix run github:nix-community/disko -- --mode zap_create_mount ~/nixos-config/hosts/asus-amd-laptop/disko.nix
 
-# Option A: Clone with HTTPS (recommended for install-time)
-git clone https://github.com/your-username/nixos-config.git /mnt/etc/nixos
+# 4. Install NixOS from the flake
+nixos-install --flake ~/nixos-config#asus-amd-laptop
 
-# Option B: Clone with SSH (requires upload of install-time SSH key)
-git clone git@github.com:your-username/nixos-config.git /mnt/etc/nixos
-
-
-# 5. Install NixOS from the flake
-nixos-install --flake .#asus-amd-laptop
-
-# 6. Reboot
+# 5. Reboot
 reboot
 ```
-
 ✅ After reboot:
 - You’ll be prompted for the LUKS password (unless TPM2 auto-unlock is enrolled)
 - SSH access is enabled for user `andyfore`
