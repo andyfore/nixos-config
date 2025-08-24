@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    disko.url = "github:nix-community/disko";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -16,8 +15,6 @@ outputs = { self, nixpkgs, disko, home-manager, ... }: {
       modules = [
         ./hosts/asus-amd-laptop/default.nix
         ./hosts/asus-amd-laptop/hardware-configuration.nix
-        ./hosts/asus-amd-laptop/disko.nix
-        disko.nixosModules.disko
 
         ./modules/base/locale.nix
         ./modules/base/networking.nix
@@ -26,7 +23,6 @@ outputs = { self, nixpkgs, disko, home-manager, ... }: {
         ./modules/desktop/hyprland.nix
         ./modules/desktop/sddm.nix
         ./modules/hardware/amd.nix
-        ./modules/security/fde-tpm.nix
 
         home-manager.nixosModules.home-manager
         {
