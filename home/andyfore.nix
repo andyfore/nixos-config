@@ -7,4 +7,19 @@
   home.stateVersion = "25.11";
 
   xdg.configFile."hypr/hyprland.conf".source = ../home/dotfiles/config/hypr/hyprland.conf;
+
+  home.packages = with pkgs; [
+    # Wayland/Hyprland kit
+    waybar wofi hyprpaper hyprlock
+    wl-clipboard grim slurp cliphist
+    # Terminals/editors/basics
+    alacritty git curl unzip
+    # Audio/display tools
+    pavucontrol brightnessctl
+  ];
+
+  # (Optional quality-of-life)
+  programs.git.enable = true;
+  programs.alacritty.enable = true;
+  programs.waybar.enable = false; # leave false if you use your own config file
 }
