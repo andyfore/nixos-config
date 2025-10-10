@@ -11,7 +11,7 @@
         waybar wofi hyprpaper hyprlock
         wl-clipboard grim slurp cliphist
         # Terminals/editors/basics
-        alacritty git curl unzip kitty
+        alacritty git curl unzip kitty brave
         # Audio/display tools
         pavucontrol brightnessctl
     ];
