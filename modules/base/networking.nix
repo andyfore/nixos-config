@@ -8,10 +8,10 @@
     services.openssh = {
         enable = true;
         openFirewall = true;
-        UseDns = false;
         settings = {
             PermitRootLogin = "no";
             PasswordAuthentication = false;
+            UseDns = false;
         };
     };
 }
