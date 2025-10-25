@@ -3,7 +3,6 @@
     home.username = "andyfore";
     home.homeDirectory = "/home/andyfore";
     programs.home-manager.enable = true;
-    programs.zsh.enable = true;
     home.stateVersion = "25.11";
 
     home.packages = with pkgs; [
@@ -21,8 +20,8 @@
     programs.zsh = {
         enable = true;
         enableCompletion = true;
-        autosuggestions.enable = true;
-        syntaxHighlighting.enable = true;
+        #autosuggestions.enable = true;
+        #syntaxHighlighting.enable = true;
         # If you keep your .zshrc in chezmoi, don’t set interactiveShellInit here.
     };
   
@@ -37,8 +36,8 @@
     };
 
     # (Optional quality-of-life)
-    programs.git.enable = true;
     programs.alacritty.enable = true;
+    programs.kitty.enable = true;
     programs.waybar.enable = false; # leave false if you use your own config file
 
   # Fonts & theming are fine to manage here if you want
