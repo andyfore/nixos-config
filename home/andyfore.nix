@@ -7,8 +7,11 @@
 
     home.packages = with pkgs; [
         # Wayland/Hyprland kit
-        waybar wofi hyprpaper hyprlock
-        wl-clipboard grim slurp cliphist
+        # waybar wofi hyprpaper hyprlock
+        # wl-clipboard grim slurp cliphist
+	# Wayland/niri kit
+	waybar wofi swww swaylock
+	wl-clipboard grim slurp cliphist
         # Terminals/editors/basics
         alacritty git curl unzip kitty brave
         # Audio/display tools
@@ -45,6 +48,40 @@
 
   # XDG defaults: lets you reference dotfiles cleanly
   xdg.enable = true;
+
+  # niri config
+  xdg.configFile."niri/config.kdl".text = ''
+    # ~/.config/niri/config.kdl
+
+    # Monitor layout (auto)
+    outputs { }
+
+    # Cursor + scale defaults
+    cursor { speed 0.0 }
+    default_workspace_scale 1.0
+
+    # Launchers
+    spawn "wofi --show drun"            mod=SUPER key=D
+    spawn "kitty"                       mod=SUPER key=RETURN
+    spawn "gtklock"                     mod=SUPER key=L
+
+    # Basics
+    close-window                        mod=SUPER key=Q
+    quit                                 mod=SUPER key=SHIFT+E
+    toggle-fullscreen                   mod=SUPER key=F
+
+    # Screenshots (grim + slurp)
+    spawn "grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%F_%T).png" mod=SUPER key=PRINT
+
+    # Workspaces (Waybar has a niri module; generic bindings still help)
+    focus-workspace 1                   mod=SUPER key=1
+    focus-workspace 2                   mod=SUPER key=2
+    focus-workspace 3                   mod=SUPER key=3
+    focus-workspace 4                   mod=SUPER key=4
+    focus-workspace 5                   mod=SUPER key=5
+  '';
+
+
 }
 
 

@@ -16,4 +16,13 @@
     services.dbus.enable = true;
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+    hardware.opengl.enable = true;
+
+    services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+        jack.enable = true;
+    };
 }
