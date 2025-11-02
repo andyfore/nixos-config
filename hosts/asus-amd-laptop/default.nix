@@ -8,7 +8,6 @@
     ../../modules/base/packages.nix
     ../../modules/base/users.nix
     ../../modules/desktop/hyprland.nix
-#    ../../modules/desktop/niri.nix
     ../../modules/desktop/sddm.nix
     ../../modules/hardware/amd-laptop.nix
   ];
