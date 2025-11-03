@@ -5,7 +5,7 @@
         extraGroups = [ "wheel" "networkmanager" "audio" "video" "lp" "kvm" "input" ];
         shell = pkgs.zsh;
         openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDKwMzjUqqzdkGqjeUnH52afG8AB3yduzOLG7cJENbhd andyfore@windmill"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8xUkBo0e9IpSLX6tlcjCcJnKiSDm91zzRsWikhzgg/ afore@VQX3K9Y2JC-M"
         ];
     };
     
