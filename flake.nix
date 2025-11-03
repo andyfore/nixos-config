@@ -20,7 +20,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.andyfore = import ./home/andyfore.nix;
+            home-manager.users.andyfore = import ./modules/home/andyfore.nix;
           }
         ];
       };
