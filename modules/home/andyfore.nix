@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
     home.username = "andyfore";
     home.homeDirectory = "/home/andyfore";
@@ -16,6 +16,14 @@
         neovim zsh
     ];
 
+    home.activation.createProjectDirs = lib.mkIf true (lib.mkForce ''
+        echo "Creating custom directories..."
+        ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development
+        ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development/code
+        ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development/repos
+        ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development/projects
+      '');
+
     # Zsh (example program module)
     programs.zsh = {
         enable = true;
@@ -25,24 +33,11 @@
         # If you keep your .zshrc in chezmoi, don’t set interactiveShellInit here.
     };
   
-    programs.git = {
-        enable = true;
-        userName  = "Andrew Fore";
-        userEmail = "andrewrfore@gmail.com";
-        extraConfig = {
-            init.defaultBranch = "main";
-            pull.rebase = true;
-        };
-    };
-
     # (Optional quality-of-life)
     programs.alacritty.enable = true;
     programs.kitty.enable = true;
     programs.waybar.enable = false; # leave false if you use your own config file
 
-    # Fonts & theming are fine to manage here if you want
-    fonts.fontconfig.enable = true;
- 
     # XDG defaults: lets you reference dotfiles cleanly
     xdg.enable = true;
     xdg.userDirs = {
