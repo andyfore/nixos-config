@@ -40,15 +40,15 @@
     programs.kitty.enable = true;
     programs.waybar.enable = false; # leave false if you use your own config file
 
-  # Fonts & theming are fine to manage here if you want
-  fonts.fontconfig.enable = true;
-
-  # XDG defaults: lets you reference dotfiles cleanly
-  xdg.enable = true;
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-  };
+    # Fonts & theming are fine to manage here if you want
+    fonts.fontconfig.enable = true;
+ 
+    # XDG defaults: lets you reference dotfiles cleanly
+    xdg.enable = true;
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
 
 }
 
