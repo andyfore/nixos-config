@@ -45,7 +45,10 @@
 
   # XDG defaults: lets you reference dotfiles cleanly
   xdg.enable = true;
-  xdg.userDirs.enable = true;
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
 
 }
 
