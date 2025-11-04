@@ -16,6 +16,10 @@
         neovim zsh
     ];
 
+    imports = [
+        ./zsh
+    ];
+
     home.activation.createProjectDirs = lib.mkIf true (lib.mkForce ''
         echo "Creating custom directories..."
         ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development
@@ -24,14 +28,6 @@
         ${pkgs.coreutils}/bin/mkdir -p ${config.home.homeDirectory}/Development/projects
       '');
 
-    # Zsh (example program module)
-    programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        #autosuggestions.enable = true;
-        #syntaxHighlighting.enable = true;
-        # If you keep your .zshrc in chezmoi, don’t set interactiveShellInit here.
-    };
   
     # (Optional quality-of-life)
     programs.alacritty.enable = true;
