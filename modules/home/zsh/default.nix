@@ -21,7 +21,7 @@
         };
     
         # Extra zsh init to replicate the rest of your .zshrc
-        initExtra = ''
+        initContent = ''
           # Fix terminal/WM timing bug causing stray '%' on startup.
           sleep 0.05
 
