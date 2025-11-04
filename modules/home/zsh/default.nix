@@ -20,14 +20,11 @@
           repo = "cd $HOME/Development/repos/";
         };
     
-        # Runs only for interactive shells (good place for the tiny startup delay)
-        interactiveShellInit = ''
-          # Fix terminal/WM timing bug causing stray '%' on startup.
-          sleep 0.05
-        '';
-    
         # Extra zsh init to replicate the rest of your .zshrc
         initExtra = ''
+          # Fix terminal/WM timing bug causing stray '%' on startup.
+          sleep 0.05
+
           # Match "unsetopt beep" from your .zshrc
           unsetopt beep
     
