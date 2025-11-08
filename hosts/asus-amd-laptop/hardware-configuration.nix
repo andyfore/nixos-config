@@ -18,16 +18,16 @@
       fsType = "xfs";
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/cbb94cc9-9815-4ff5-ad8c-8f0d9375abd1";
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7d85520b-7afd-4114-aa92-764c2060bbbb";
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/B560-98F2";
+    { device = "/dev/disk/by-uuid/F579-D745";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/0266bd2a-fbdd-4923-a355-4e82c0784d4e";
+    { device = "/dev/disk/by-uuid/fbdd9988-573d-4de5-b5f4-95b64841c97d";
       fsType = "xfs";
     };
 
