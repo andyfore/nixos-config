@@ -5,6 +5,7 @@
     ../../modules/base/boot.nix
     ../../modules/base/networking.nix
     ../../modules/base/nix.nix
+    ../../modules/base/locale.nix
     ../../modules/base/packages.nix
     ../../modules/base/users.nix
     ../../modules/home/hyprland
