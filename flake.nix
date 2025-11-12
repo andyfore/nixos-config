@@ -11,7 +11,7 @@
     ulauncher.url = "github:Ulauncher/Ulauncher";
   };
 
-  outputs = { self, nixpkgs, home-manager, ulauncher, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ulauncher, ... }: {
     nixosConfigurations = {
       asus-amd-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
