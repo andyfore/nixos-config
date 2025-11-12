@@ -62,7 +62,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${uPkg}/bin/ulauncher";
+        ExecStart = "${ul6Pkg}/bin/ulauncher";
         Restart = "on-failure";
         Environment = "XDG_CURRENT_DESKTOP=${config.xdg.portal.desktop || "wlroots"}";
       };
