@@ -15,6 +15,7 @@
     nixosConfigurations = {
       asus-amd-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/asus-amd-laptop/default.nix
           ./hosts/asus-amd-laptop/hardware-configuration.nix
