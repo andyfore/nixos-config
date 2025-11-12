@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   ul6Pkg = (inputs.ulauncher.packages.${pkgs.system}.ulauncher);
 in
