@@ -6,9 +6,12 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Ulauncher v6 (their main branch is v6-dev)
+    ulauncher.url = "github:Ulauncher/Ulauncher";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ulauncher, ... }: {
     nixosConfigurations = {
       asus-amd-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
