@@ -17,7 +17,8 @@
     ];
 
     imports = [
-        ./zsh
+      ./hyprland
+      ./zsh
     ];
 
     home.activation.createProjectDirs = lib.mkIf true (lib.mkForce ''
