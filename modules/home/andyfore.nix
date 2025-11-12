@@ -64,7 +64,7 @@ in
       Service = {
         ExecStart = "${ulauncher6}/bin/ulauncher";
         Restart = "on-failure";
-        Environment = "XDG_CURRENT_DESKTOP=${config.xdg.portal.desktop || "wlroots"}";
+        Environment = "XDG_CURRENT_DESKTOP=Hyprland";
       };
       Install = { WantedBy = [ "graphical-session.target" ]; };
     };
