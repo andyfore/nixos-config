@@ -22,12 +22,12 @@ in
         ul6Pkg
     ];
 
-    home.sessionVariables = [
-      terminal = "alacritty"
-      fileManager = "thunar"
-      menu = "ulauncher-toogle"
-      browser = "brave --flag-switches-begin --flag-switches-end"
-    ];
+    home.sessionVariables = {
+      terminal = "alacritty";
+      fileManager = "thunar";
+      menu = "ulauncher-toogle";
+      browser = "brave --flag-switches-begin --flag-switches-end";
+    };
 
     imports = [
       ./hyprland
