@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  ul6Pkg = (inputs.ulauncher.packages.${pkgs.system}.ulauncher);
+in
 {
     home.username = "andyfore";
     home.homeDirectory = "/home/andyfore";
@@ -15,6 +18,15 @@
         pavucontrol brightnessctl
         neovim zsh
         waypaper blueman kdeconnect swayosd
+        thunar
+        ul6Pkg
+    ];
+
+    home.sessionVariables = [
+      terminal = "alacritty"
+      fileManager = "thunar"
+      menu = "ulauncher-toogle"
+      browser = "brave --flag-switches-begin --flag-switches-end"
     ];
 
     imports = [
@@ -41,6 +53,20 @@
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
+    };
+
+    systemd.user.services.ulauncher = {
+      Unit = {
+        Description = "Ulauncher";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${uPkg}/bin/ulauncher";
+        Restart = "on-failure";
+        Environment = "XDG_CURRENT_DESKTOP=${config.xdg.portal.desktop || "wlroots"}";
+      };
+      Install = { WantedBy = [ "graphical-session.target" ]; };
     };
 
 }
