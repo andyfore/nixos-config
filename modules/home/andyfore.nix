@@ -14,6 +14,7 @@
         # Audio/display tools
         pavucontrol brightnessctl
         neovim zsh
+        waypaper blueman kdeconnect swayosd
     ];
 
     imports = [
