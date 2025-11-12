@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  ul6Pkg = (inputs.ulauncher.packages.${pkgs.system}.ulauncher);
+  ulauncher6 = (inputs.ulauncher.packages.${pkgs.system}.ulauncher);
 in
 {
     home.username = "andyfore";
@@ -17,9 +17,9 @@ in
         # Audio/display tools
         pavucontrol brightnessctl
         neovim zsh
-        waypaper blueman kdeconnect swayosd
+        waypaper blueman kdeconnect-kde swayosd
         thunar
-        ul6Pkg
+        ulauncher6
     ];
 
     home.sessionVariables = {
@@ -62,7 +62,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${ul6Pkg}/bin/ulauncher";
+        ExecStart = "${ulauncher6}/bin/ulauncher";
         Restart = "on-failure";
         Environment = "XDG_CURRENT_DESKTOP=${config.xdg.portal.desktop || "wlroots"}";
       };
