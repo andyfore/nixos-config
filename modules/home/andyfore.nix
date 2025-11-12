@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  ulauncher6 = (inputs.ulauncher.packages.${pkgs.system}.ulauncher);
+  ulauncher6 = (inputs.ulauncher.packages.${pkgs.system}.ulauncher6);
 in
 {
     home.username = "andyfore";
