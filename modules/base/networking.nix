@@ -14,4 +14,6 @@
             UseDns = false;
         };
     };
+
+    environment.systemPackages = with pkgs; [networkmanagerapplet];
 }
