@@ -18,7 +18,7 @@ in
         pavucontrol brightnessctl
         neovim zsh
         waypaper blueman swayosd
-        thunar
+        xfce.thunar
         ulauncher6
     ];
 
