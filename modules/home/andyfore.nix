@@ -17,7 +17,7 @@ in
         # Audio/display tools
         pavucontrol brightnessctl
         neovim zsh
-        waypaper blueman kdeconnect-kde swayosd
+        waypaper blueman swayosd
         thunar
         ulauncher6
     ];
