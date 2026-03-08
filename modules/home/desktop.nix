@@ -15,5 +15,6 @@
     pavucontrol
     brightnessctl
     playerctl
+    brave
   ];
 }
