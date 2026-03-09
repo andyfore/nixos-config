@@ -1,10 +1,18 @@
 # btrfs/disko-config.nix
 
-{ disks ? [ "/dev/nvme0n1" "/dev/nvme1n1" ], ... }: 
-let 
-  number_of_disks = if (builtins.length disks < 3) 
-                    then builtins.length disks 
-                    else throw "Error. Too many disks passed to disko.";
+{
+  disks ? [
+    "/dev/nvme0n1"
+    "/dev/nvme1n1"
+  ],
+  ...
+}:
+let
+  number_of_disks =
+    if (builtins.length disks < 3) then
+      builtins.length disks
+    else
+      throw "Error. Too many disks passed to disko.";
 in
 {
   disko.devices = {
@@ -24,8 +32,8 @@ in
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-              };
-            };
+              }; # end ESP content
+            }; # end ESP
             root = {
               # name = "root";
               size = "100%";
@@ -36,41 +44,58 @@ in
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ]; # Override existing partition
-                  subvolumes = 
-                      { 
-                        "@" = { };
-                        "@/root" = {
-                          mountpoint = "/";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                        "@/home" = {
-                          mountpoint = "/home";
-                          mountOptions = [ "compress=zstd" ];
-                        };
-                        "@/nix" = {
-                          mountpoint = "/nix";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                        "@/persist" = {
-                          mountpoint = "/persist";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                        "@/var-lib" = {
-                          mountpoint = "/var/lib";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                        "@/var-log" = {
-                          mountpoint = "/var/log";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                        "@/var-tmp" = {
-                          mountpoint = "/var/tmp";
-                          mountOptions = [ "compress=zstd" "noatime" ];
-                        };
-                      };
-                };
-              };
-            };
+                  subvolumes = {
+                    "@" = { };
+                    "@/root" = {
+                      mountpoint = "/";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@/home" = {
+                      mountpoint = "/home";
+                      mountOptions = [ "compress=zstd" ];
+                    };
+                    "@/nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@/persist" = {
+                      mountpoint = "/persist";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@/var-lib" = {
+                      mountpoint = "/var/lib";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@/var-log" = {
+                      mountpoint = "/var/log";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@/var-tmp" = {
+                      mountpoint = "/var/tmp";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    }; # end var-tmp
+                  }; # subvolumes
+                }; # end content btrfs
+              }; # end luks content
+            }; # end root
           };
         };
       };
@@ -88,9 +113,12 @@ in
                 type = "btrfs";
                 extraArgs = [ "-f" ]; # Override existing partition
                 subvolumes = {
-                  "@" = { 
+                  "@" = {
                     mountpoint = "/DATA";
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                   };
                   "@/games" = {
                     mountpoint = "/games";
@@ -106,5 +134,6 @@ in
           };
         };
       };
+    };
   };
 }
