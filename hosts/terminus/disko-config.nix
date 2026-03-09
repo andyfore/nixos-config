@@ -28,8 +28,9 @@ in
             };
             root = {
               # name = "root";
-              start = "2048MiB";
-              end = "100%";
+#              start = "2048MiB";
+#              end = "100%";
+              size = "100%";
               content = {
                 type = "luks";
                 name = "cryptroot";
