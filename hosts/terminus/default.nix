@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./disko.nix
+    ./disko-config.nix
 
     ../../modules/nixos/boot.nix
     ../../modules/nixos/networking.nix
