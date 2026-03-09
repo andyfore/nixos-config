@@ -28,8 +28,6 @@ in
             };
             root = {
               # name = "root";
-#              start = "2048MiB";
-#              end = "100%";
               size = "100%";
               content = {
                 type = "luks";
@@ -39,7 +37,6 @@ in
                   type = "btrfs";
                   extraArgs = [ "-f" ]; # Override existing partition
                   subvolumes = 
-                    if (number_of_disks == 1) then 
                       { 
                         "@" = { };
                         "@/root" = {
@@ -71,34 +68,6 @@ in
                           mountOptions = [ "compress=zstd" "noatime" ];
                         };
                       }
-                    else
-                      {
-#                        "@" = { };
-#                        "@/root" = {
-#                          mountpoint = "/";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-#                        "@/nix" = {
-#                          mountpoint = "/nix";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-#                        "@/persist" = {
-#                          mountpoint = "/persist";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-#                        "@/var-lib" = {
-#                          mountpoint = "/var/lib";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-#                        "@/var-log" = {
-#                          mountpoint = "/var/log";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-#                        "@/var-tmp" = {
-#                          mountpoint = "/var/tmp";
-#                          mountOptions = [ "compress=zstd" "noatime" ];
-#                        };
-                      };
                 };
               };
             };
@@ -106,9 +75,7 @@ in
         };
       };
 
-      disk2 = if (number_of_disks == 1) then {}
-      else
-      {
+      disk2 = {
         type = "disk";
         device = builtins.elemAt disks 1;
         content = {
@@ -116,8 +83,6 @@ in
           partitions = {
             DATA = {
               # name = "DATA";
-#              start = "1MiB";
-#              end = "100%";
               size = "100%";
               content = {
                 type = "btrfs";
@@ -141,6 +106,5 @@ in
           };
         };
       };
-    };
   };
 }
