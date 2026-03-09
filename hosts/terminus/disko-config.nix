@@ -67,7 +67,7 @@ in
                           mountpoint = "/var/tmp";
                           mountOptions = [ "compress=zstd" "noatime" ];
                         };
-                      }
+                      };
                 };
               };
             };
