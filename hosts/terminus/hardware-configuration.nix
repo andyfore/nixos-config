@@ -19,7 +19,7 @@
 #      options = [ "subvol=@/root" ];
 #    };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d3a5aead-ff05-4458-ba7a-4a8326ac6a5f";
+#  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d3a5aead-ff05-4458-ba7a-4a8326ac6a5f";
 
 #  fileSystems."/DATA" =
 #    { device = "/dev/disk/by-uuid/1728c676-0e9f-460a-997e-0bdb09f88f9a";
