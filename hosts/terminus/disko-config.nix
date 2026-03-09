@@ -116,8 +116,9 @@ in
           partitions = {
             DATA = {
               # name = "DATA";
-              start = "1MiB";
-              end = "100%";
+#              start = "1MiB";
+#              end = "100%";
+              size = "100%";
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ]; # Override existing partition
