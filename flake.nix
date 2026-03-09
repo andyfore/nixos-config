@@ -13,9 +13,15 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, niri, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, niri, disko, ... }:
     let
       system = "x86_64-linux";
     in {
@@ -25,6 +31,8 @@
 
         modules = [
           ./hosts/terminus/default.nix
+
+          disko.nixosModules.disko
 
           home-manager.nixosModules.home-manager
           {
