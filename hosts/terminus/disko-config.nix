@@ -9,7 +9,7 @@ in
 {
   disko.devices = {
     disk = {
-      vda = {
+      disk1 = {
         type = "disk";
         device = builtins.elemAt disks 0;
         content = {
@@ -105,7 +105,7 @@ in
         };
       };
 
-      vdb = if (number_of_disks == 1) then {}
+      disk2 = if (number_of_disks == 1) then {}
       else
       {
         type = "disk";
