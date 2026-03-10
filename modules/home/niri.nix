@@ -1,9 +1,9 @@
 { config, inputs, pkgs, ... }:
 
 {
-  imports = [
-    inputs.niri.homeModules.config
-  ];
+#  imports = [
+#    inputs.niri.homeModules.config
+#  ];
 
   programs.niri = {
     #enable = true;
