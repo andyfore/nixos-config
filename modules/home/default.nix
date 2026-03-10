@@ -3,7 +3,8 @@
 {
   imports = [
     ./desktop.nix
-    ./niri.nix
+#    ./niri.nix
+    ./hyprland.nix
     ./waybar.nix
     ./fuzzel.nix
     ./mako.nix

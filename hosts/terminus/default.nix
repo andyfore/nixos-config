@@ -13,7 +13,8 @@
     ../../modules/nixos/users.nix
     ../../modules/nixos/packages.nix
     ../../modules/nixos/greetd.nix
-    ../../modules/nixos/niri.nix
+#    ../../modules/nixos/niri.nix
+    ../../modules/nixos/hyprland.nix
   ];
 
   networking.hostName = "terminus";
