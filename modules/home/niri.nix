@@ -54,7 +54,7 @@
         "Mod+Q".action = close-window;
         "Mod+Shift+E".action = quit;
         "Mod+F".action = fullscreen-window;
-        "Mod+Left".action = focus-column.left;
+        "Mod+Left".action = focus-column-left;
       };
     };
   };
