@@ -114,18 +114,18 @@ in
                 extraArgs = [ "-f" ]; # Override existing partition
                 subvolumes = {
                   "@" = {
-                    mountpoint = "/DATA";
+                    mountpoint = "/data";
                     mountOptions = [
                       "compress=zstd"
                       "noatime"
                     ];
                   };
                   "@/games" = {
-                    mountpoint = "/games";
+                    mountpoint = "/data/games";
                     mountOptions = [ "compress=zstd" ];
                   };
                   "@/code" = {
-                    mountpoint = "/code";
+                    mountpoint = "/data/code";
                     mountOptions = [ "compress=zstd" ];
                   };
                 };
