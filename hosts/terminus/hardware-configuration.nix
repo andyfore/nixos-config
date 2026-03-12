@@ -13,75 +13,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-#  fileSystems."/" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/root" ];
-#    };
-
-#  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d3a5aead-ff05-4458-ba7a-4a8326ac6a5f";
-
-#  fileSystems."/DATA" =
-#    { device = "/dev/disk/by-uuid/1728c676-0e9f-460a-997e-0bdb09f88f9a";
-#      fsType = "btrfs";
-#      options = [ "subvol=@" ];
-#    };
-
-#  fileSystems."/boot" =
-#    { device = "/dev/disk/by-uuid/9DA0-C252";
-#      fsType = "vfat";
-#      options = [ "fmask=0022" "dmask=0022" ];
-#    };
-
-#  fileSystems."/code" =
-#    { device = "/dev/disk/by-uuid/1728c676-0e9f-460a-997e-0bdb09f88f9a";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/code" ];
-#    };
-
-#  fileSystems."/games" =
-#    { device = "/dev/disk/by-uuid/1728c676-0e9f-460a-997e-0bdb09f88f9a";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/games" ];
-#    };
-
-#  fileSystems."/home" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/home" ];
-#    };
-
-#  fileSystems."/nix" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/nix" ];
-#    };
-
-#  fileSystems."/persist" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/persist" ];
-#    };
-
-#  fileSystems."/var/lib" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/var-lib" ];
-#    };
-
-#  fileSystems."/var/log" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/var-log" ];
-#    };
-
-#  fileSystems."/var/tmp" =
-#    { device = "/dev/mapper/cryptroot";
-#      fsType = "btrfs";
-#      options = [ "subvol=@/var-tmp" ];
-#    };
-
-  swapDevices = [ ];
+  #boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/2ad7aa16-84bc-42dd-8902-7fd6e1af4df8";
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
