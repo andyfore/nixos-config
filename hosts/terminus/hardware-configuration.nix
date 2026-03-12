@@ -13,8 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  #boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/2ad7aa16-84bc-42dd-8902-7fd6e1af4df8";
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
