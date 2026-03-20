@@ -6,6 +6,7 @@
     curl
     wget
     vim
+    xdg-user-dirs
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
