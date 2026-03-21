@@ -112,17 +112,17 @@
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
-        blur {
+        blur = {
           enabled = true;
           size = 3;
           passes = 1;
           vibrancy = 0.1696;
         };
 
-        animations {
+        animations = {
           enabled = true;
         
-          bezier {
+          bezier = {
             "easeOutQuint,0.23,1,0.32,1";
             "easeInOutCubic,0.65,0.05,0.36,1";
             "linear,0,0,1,1";
@@ -130,7 +130,7 @@
             "quick,0.15,0,0.1,1";
           };
         
-          animation {
+          animation = {
             "global, 1, 10, default";
             "border, 1, 5.39, easeOutQuint";
             "windows, 1, 4.79, easeOutQuint";
