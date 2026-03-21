@@ -100,6 +100,20 @@
         allow_tearing = false;
       };
 
+      misc = {
+          force_default_wallpaper = 0;
+          disable_hyprland_logo = true;
+      };
+
+      dwindle = {
+          pseudotile = true;
+          preserve_split = true;
+      };
+
+      master = {
+          new_status = "master";
+      };
+
       decoration = {
         rounding = 10;
         rounding_power = 2;
@@ -112,6 +126,7 @@
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
+
         blur = {
           enabled = true;
           size = 3;
