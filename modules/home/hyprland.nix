@@ -2,10 +2,10 @@
 
 {
   wayland.windowManager.hyprland = {
-    enable = true
+    enable = true;
 
     # Important with UWSM
-    systemd.enable = false
+    systemd.enable = false;
 
     settings = {
       monitor = [
