@@ -86,7 +86,7 @@
       };
 
       gestures = {
-        workspace_swipe = true;
+        workspace = true;
       };
 
       general = {
