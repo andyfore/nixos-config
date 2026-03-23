@@ -12,6 +12,11 @@
     ./shell.nix
   ];
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
+
   home.username = "andyfore";
   home.homeDirectory = "/home/andyfore";
 
