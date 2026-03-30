@@ -31,7 +31,7 @@
     # Fonts and Themes
     (with pkgs; [
       nerd-fonts.jetbrains-mono  # Programming font with icons
-      papirus-icon-theme - provided by Catppuccin
+      papirus-icon-theme
       libsForQt5.qtstyleplugin-kvantum # Qt theme engine for Catppuccin
       qt6Packages.qtstyleplugin-kvantum # Qt6 theme engine
     ]) ++
