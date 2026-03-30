@@ -10,6 +10,6 @@
     };
   };
 
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 }
