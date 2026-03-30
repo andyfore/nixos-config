@@ -10,6 +10,7 @@
     ./mako.nix
     ./git.nix
     ./shell.nix
+    ./packages.nix
   ];
 
   xdg.userDirs = {
